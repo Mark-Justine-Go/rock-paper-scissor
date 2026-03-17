@@ -1,0 +1,28 @@
+GET
+ input of player 1
+ input of player 2
+
+make sure the input is correct
+
+SWITCH(PLAYER 1)
+ CASE rock:
+  IF player 2 is paper
+   player 2 wins
+  ELSE IF player 2 is scissor
+   player 1 wins
+  else
+   tie
+ CASE paper:
+  IF player 2 is rock
+   player 1 wins
+  ELSE IF player 2 is scissor
+   player 2 wins
+  ELSE
+   tie
+ CASE scissor
+  IF player 2 is rock
+   player 2 wins
+  ELSE IF player 2 is paper
+   player 1 wins
+  ELSE
+   tie
