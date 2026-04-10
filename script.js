@@ -15,7 +15,7 @@ function getComputerChoice(){
 }
 
 function getHumanChoice(){
-    return prompt("Enter your stance: ").toLowerCase();
+    
 }
 
 function playRound(human, computer){
@@ -59,13 +59,3 @@ function playRound(human, computer){
     console.log(`Human: ${humanScore}\nComputer: ${computerScore}`);
 }
 
-function playGame(){
-    for(let i = 0; i < 5; i++){
-        let player = getHumanChoice();
-        let computer = getComputerChoice();
-
-        playRound(player,computer);
-    }
-}
-
-playGame();

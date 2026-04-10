@@ -1,0 +1,54 @@
+html, *{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+p{
+    width: 300px;
+}
+
+.container{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.result,
+.scores{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.choices{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.choices > div{
+    width: 100px;
+    height: 100px;
+}   
+
+.choices > div:hover{
+    cursor: pointer;
+    border: 3px solid black;
+    border-radius: 50%;
+}
+
+.choices > div > img{
+    width: 100px;
+    height: 100px;
+    filter: brightness(1.2);
+}
+
+#humanResult,
+#computerResult{
+    border: 1px solid black;
+    width: 300px;
+    height: 300px;
+}
