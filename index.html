@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <title>Rock Paper Scissor</title>
 </head>
 <body>
@@ -15,13 +15,13 @@
             <div id="computerResult"></div>
         </div>
         <div class="scores">
-            <p>0</p>
-            <p>0</p>
+            <p id="humanScore">0</p>
+            <p id="computerScore">0</p>
         </div>
         <div class="choices">
-            <div><img src="images/rock.png" alt="rock"></div>
-            <div><img src="images/paper.png" alt="paper"></div>
-            <div><img src="images/scissor.png" alt="scissor"></div>
+            <div id="rock"><img src="images/rock.png" alt="rock"></div>
+            <div id="paper"><img src="images/paper.png" alt="paper"></div>
+            <div id="scissor"><img src="images/scissor.png" alt="scissor"></div>
         </div>
     </div>
 </body>

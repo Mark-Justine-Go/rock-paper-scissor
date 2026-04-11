@@ -14,12 +14,10 @@ function getComputerChoice(){
     }
 }
 
-function getHumanChoice(){
-    
-}
+function playRound(choice){
+    const computer = getComputerChoice();
 
-function playRound(human, computer){
-    switch(human){
+    switch(choice){
         case "rock":
             if(computer === "paper"){
                 console.log("You lose, paper beats rock!");
@@ -55,7 +53,38 @@ function playRound(human, computer){
             break
     }
 
-    console.log("Current Scores");
-    console.log(`Human: ${humanScore}\nComputer: ${computerScore}`);
+    const humanScoreElem = document.querySelector("#humanScore");
+    const computerScoreElem = document.querySelector("#computerScore");
+    humanScoreElem.textContent = humanScore;
+    computerScoreElem.textContent = computerScore;
+
+    if(humanScore === 5 || computerScore === 5){
+        const scoreElem = document.createElement("div");
+        const overlay = document.createElement("div");
+        const newGameButton = document.createElement("button");
+        const rootElem = document.querySelector("body");
+
+        overlay.classList.add("overlay");
+        scoreElem.classList.add("winnerPrompt");
+        newGameButton.classList.add("newGameButton");
+
+        newGameButton.addEventListener("click", ()=>location.reload());
+
+        scoreElem.textContent = `${(humanScore > computerScore) ? "Human" : "Computer"} wins!`;
+        newGameButton.textContent = "Restart";
+
+        scoreElem.appendChild(newGameButton);
+        rootElem.appendChild(overlay);
+        rootElem.appendChild(scoreElem);
+    }
+
 }
+
+let choicesElement = document.querySelectorAll(".choices > div");
+
+choicesElement.forEach((element)=>{
+    let choice = element.id;
+    
+    element.addEventListener("click", () => playRound(choice));
+})
 
