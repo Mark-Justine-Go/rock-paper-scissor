@@ -17,6 +17,19 @@ function getComputerChoice(){
 function playRound(choice){
     const computer = getComputerChoice();
 
+    const humanResultFrame = document.querySelector("#humanResult");
+    const computerResultFrame = document.querySelector("#computerResult");
+    const humanImg = document.createElement("img");
+    const computerImg = document.createElement("img");
+
+    humanResultFrame.replaceChildren();
+    computerResultFrame.replaceChildren();
+    humanImg.src = `images/${choice}.png`;
+    computerImg.src = `images/${computer}.png`;
+
+    humanResultFrame.appendChild(humanImg);
+    computerResultFrame.appendChild(computerImg);
+
     switch(choice){
         case "rock":
             if(computer === "paper"){
@@ -55,8 +68,8 @@ function playRound(choice){
 
     const humanScoreElem = document.querySelector("#humanScore");
     const computerScoreElem = document.querySelector("#computerScore");
-    humanScoreElem.textContent = humanScore;
-    computerScoreElem.textContent = computerScore;
+    humanScoreElem.textContent = "You: "+humanScore;
+    computerScoreElem.textContent = "Computer: "+computerScore;
 
     if(humanScore === 5 || computerScore === 5){
         const scoreElem = document.createElement("div");

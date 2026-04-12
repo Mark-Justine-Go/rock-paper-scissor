@@ -93,7 +93,18 @@ img{
 
 #humanResult,
 #computerResult{
-    border: 1px solid black;
+    border: 5px solid #28396C;
     width: 300px;
     height: 300px;
+    padding: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#humanResult > img,
+#computerResult > img{
+    width: 200px;
+    height: 200px;
 }
