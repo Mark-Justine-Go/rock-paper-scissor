@@ -17,6 +17,10 @@ img{
     filter: brightness(1.2);
 }
 
+img[src=""] {
+  visibility: hidden;
+}
+
 .container{
     margin-top: 30px;
     display: flex;

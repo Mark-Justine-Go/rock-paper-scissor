@@ -1,6 +1,18 @@
 humanScore = 0;
 computerScore = 0;
 
+const humanImg = document.querySelector("#humanResultImg");
+const computerImg = document.querySelector("#computerResultImg");
+const humanScoreElem = document.querySelector("#humanScore");
+const computerScoreElem = document.querySelector("#computerScore");
+const choicesElement = document.querySelectorAll(".choices > div");
+
+choicesElement.forEach((element)=>{
+    let choice = element.id;
+    
+    element.addEventListener("click", () => playRound(choice));
+})
+
 function getComputerChoice(){
     let randomNum = Math.floor(Math.random()*3);
 
@@ -17,18 +29,8 @@ function getComputerChoice(){
 function playRound(choice){
     const computer = getComputerChoice();
 
-    const humanResultFrame = document.querySelector("#humanResult");
-    const computerResultFrame = document.querySelector("#computerResult");
-    const humanImg = document.createElement("img");
-    const computerImg = document.createElement("img");
-
-    humanResultFrame.replaceChildren();
-    computerResultFrame.replaceChildren();
     humanImg.src = `images/${choice}.png`;
     computerImg.src = `images/${computer}.png`;
-
-    humanResultFrame.appendChild(humanImg);
-    computerResultFrame.appendChild(computerImg);
 
     switch(choice){
         case "rock":
@@ -38,8 +40,6 @@ function playRound(choice){
             }else if(computer === "scissor"){
                 console.log("You win, rock beats scissor!");
                 humanScore++;
-            }else{
-                console.log("Tie! both played rock");
             }
             break
         case "paper":
@@ -47,27 +47,18 @@ function playRound(choice){
                 console.log("You win, paper beats rock!");
                 humanScore++;
             }else if(computer === "scissor"){
-                console.log("You lose, scissor beats paper!");
                 computerScore++;
-            }else{
-                console.log("Tie! both played paper");
             }
             break
         case "scissor":
             if(computer === "rock"){
-                console.log("You lose, rock beats scissor!");
                 computerScore++;
             }else if(computer === "paper"){
-                console.log("You win, scissor beats paper!");
                 humanScore++;
-            }else{
-                console.log("Tie! both played scissor");
             }
             break
     }
 
-    const humanScoreElem = document.querySelector("#humanScore");
-    const computerScoreElem = document.querySelector("#computerScore");
     humanScoreElem.textContent = "You: "+humanScore;
     computerScoreElem.textContent = "Computer: "+computerScore;
 
@@ -92,12 +83,4 @@ function playRound(choice){
     }
 
 }
-
-let choicesElement = document.querySelectorAll(".choices > div");
-
-choicesElement.forEach((element)=>{
-    let choice = element.id;
-    
-    element.addEventListener("click", () => playRound(choice));
-})
 
